@@ -47,6 +47,7 @@ class GameView extends SurfaceView implements SensorEventListener {
 
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
+                gameLoopThread.stop();
             }
 
             @Override
@@ -66,9 +67,14 @@ class GameView extends SurfaceView implements SensorEventListener {
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
         paint.setStrokeWidth(20);
-        canvas.drawLine(0, getHeight()/2, getWidth(), this.getHeight()/2, paint);
-
-
+        canvas.drawLine(0, (float)(getHeight()*0.5), getWidth(), (float)(getHeight()*0.5), paint);
+        canvas.drawLine((float)(getWidth()*0.1), (float)(getHeight()*0.1), (float)(getWidth()*0.9), (float)(getHeight()*0.1), paint);
+        canvas.drawLine((float)(getWidth()*0.1), (float)(getHeight()*0.9), (float)(getWidth()*0.9), (float)(getHeight()*0.9), paint);
+        canvas.drawLine((float)(getWidth()*0.1), (float)(getHeight()*0.1), (float)(getWidth()*0.1), (float)(getHeight()*0.9), paint);
+        canvas.drawLine((float)(getWidth()*0.9), (float)(getHeight()*0.1), (float)(getWidth()*0.9), (float)(getHeight()*0.9), paint);
+        canvas.drawLine((float)(getWidth()*0.1), (float)(getHeight()*0.3), (float)(getWidth()*0.9), (float)(getHeight()*0.3), paint);
+        canvas.drawLine((float)(getWidth()*0.1), (float)(getHeight()*0.7), (float)(getWidth()*0.9), (float)(getHeight()*0.7), paint);
+        canvas.drawLine((float)(getWidth()*0.5), (float)(getHeight()*0.3), (float)(getWidth()*0.5), (float)(getHeight()*0.7), paint);
         pelota.onDraw(canvas);
     }
 
